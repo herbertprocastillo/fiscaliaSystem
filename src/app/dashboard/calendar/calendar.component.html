@@ -1,29 +1,20 @@
-<div class="container">
+<div class="container" *ngIf="authSvc.user$ | async as user">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h5>Calendario de Actividades</h5>
+    </div>
+  </div>
 
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h5>Calendario de Actividades</h5>
-        </div>
+  <div class="row mt-4">
+    <!-- Form - New event  -->
+    <div class="col-md-4">
+      <app-new-event [user]="user"></app-new-event>
     </div>
 
-    <div class="row">
-        <!-- Form new activity  -->
-        <div class="col-md-4">
-        </div>
-        <!-- Calendar -->
-        <div class="col-md-8">
-            <div id="calendario">
-                <h1>{{ dateSelect | date:'MMMM, yyyy'}}</h1>
-                <ol>
-                    <li class="dayName" *ngFor="let day of week">{{ day | slice:0:3 }}</li>
-    
-                    <li [style.gridColumnStart]="first? day?.indexWeek : 'auto'" *ngFor="let day of monthSelect; let first = first">
-                        <span>{{day?.value}}</span>
-                    </li>
-                </ol>
-    
-            </div> 
-
-        </div>
+    <!-- Calendar - List events -->
+    <div class="col-md-8">
+      <app-list-events [user]="user"></app-list-events>
     </div>
+  </div>
+
 </div>

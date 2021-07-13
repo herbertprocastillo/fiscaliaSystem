@@ -57,11 +57,11 @@
 	<div class="row mt-3">
 		<div class="col-md-12">
 			<ng-container *ngIf="list === true">
-				<app-list [showType]="showType" [searchText]="searchText"></app-list>
+				<app-list-files [showType]="showType" [searchText]="searchText"></app-list-files>
 			</ng-container>
 
 			<ng-container *ngIf="form === true">
-				<app-new [user]="user"></app-new>
+				<app-new-file [user]="user"></app-new-file>
 			</ng-container>
 		</div>
 	</div>
